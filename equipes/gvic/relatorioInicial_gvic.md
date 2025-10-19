@@ -29,4 +29,4 @@ Será você capaz de acalmar a entidade ancestral, restaurar o equilíbrio da na
 ## Concept Art:
 
 ### Entidade Ancestral
-![Entidade Ancestral](./assets/entidade-ancestral.gif)
+![Entidade Ancestral](./the-last-seed/assets/entidade-ancestral/entidade-ancestral.gif)

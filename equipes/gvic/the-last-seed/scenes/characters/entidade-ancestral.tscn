@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://djajt6c81ckqa"]
+
+[ext_resource type="Texture2D" uid="uid://b6hnq7yixl7gj" path="res://assets/entidade-ancestral/entidade-ancestral-f1.png" id="1_3vls1"]
+[ext_resource type="Script" uid="uid://b3nat7n04dm8r" path="res://scripts/characters/entidade_ancestral.gd" id="1_klluv"]
+[ext_resource type="Texture2D" uid="uid://dssyi8nb0cvra" path="res://assets/entidade-ancestral/entidade-ancestral-f2.png" id="3_bjvj3"]
+[ext_resource type="Texture2D" uid="uid://drdjyinsnyaev" path="res://assets/entidade-ancestral/entidade-ancestral-f3.png" id="4_8j7qc"]
+[ext_resource type="Texture2D" uid="uid://20mvypj04dlh" path="res://assets/entidade-ancestral/entidade-ancestral-f4.png" id="5_8tilc"]
+[ext_resource type="Texture2D" uid="uid://0qtoqr5j7ud4" path="res://assets/entidade-ancestral/entidade-ancestral-f5.png" id="6_x4oky"]
+[ext_resource type="Texture2D" uid="uid://df2mgxc82wo62" path="res://assets/entidade-ancestral/entidade-ancestral-f6.png" id="7_sl805"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_48a5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bjvj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8j7qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8tilc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x4oky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sl805")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_klluv"]
+radius = 21.0
+
+[node name="Entidade Ancestral" type="CharacterBody2D"]
+script = ExtResource("1_klluv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -45)
+sprite_frames = SubResource("SpriteFrames_48a5u")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_klluv")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="NavigationTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="NavigationTimer" to="." method="_on_navigation_timer_timeout"]

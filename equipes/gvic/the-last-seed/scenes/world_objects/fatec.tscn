@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d31sxfmho1mf0"]
+
+[ext_resource type="Texture2D" uid="uid://d12d54hwlyywy" path="res://assets/fatec/fatec.png" id="1_q2vf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ples"]
+size = Vector2(217, 41)
+
+[node name="Fatec" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -44)
+texture = ExtResource("1_q2vf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_1ples")

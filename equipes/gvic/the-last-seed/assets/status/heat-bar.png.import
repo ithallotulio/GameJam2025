@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://llfpj7lqfv04"
-path="res://.godot/imported/Temperature.png-2b9afb36530fa31891faad68b4cf9c46.ctex"
+uid="uid://dpe8wc82vxn40"
+path="res://.godot/imported/heat-bar.png-fa81b47ff49be6cc01902d692f9d59db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/status/Temperature.png"
-dest_files=["res://.godot/imported/Temperature.png-2b9afb36530fa31891faad68b4cf9c46.ctex"]
+source_file="res://assets/status/heat-bar.png"
+dest_files=["res://.godot/imported/heat-bar.png-fa81b47ff49be6cc01902d692f9d59db.ctex"]
 
 [params]
 

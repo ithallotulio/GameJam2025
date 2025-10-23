@@ -71,9 +71,6 @@ extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(nav.get_next_path_position())
-	var direction2 = to_local(nav.get_next_path_position()).normalized()
-	
-	print(direction, direction2)
 	velocity = direction * speed
 	
 	move_and_slide()

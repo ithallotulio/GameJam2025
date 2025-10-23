@@ -1,9 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://cq1ehk14f865r"]
+[gd_scene load_steps=36 format=3 uid="uid://cq1ehk14f865r"]
 
 [ext_resource type="Script" uid="uid://cslpyhfqx6jko" path="res://scripts/characters/player.gd" id="1_yewv4"]
 [ext_resource type="Texture2D" uid="uid://by2la6r3pwyng" path="res://assets/cesar/cesar.png" id="2_76oj4"]
 [ext_resource type="Texture2D" uid="uid://nfui5uhud1nl" path="res://assets/cesar/cesar-flip.png" id="3_dyp2m"]
-[ext_resource type="Texture2D" uid="uid://llfpj7lqfv04" path="res://assets/status/Temperature.png" id="4_dyp2m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atpat"]
 atlas = ExtResource("2_76oj4")
@@ -264,7 +263,3 @@ shape = SubResource("CircleShape2D_rp718")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-
-[node name="Temperature" type="Sprite2D" parent="."]
-position = Vector2(-377, -204)
-texture = ExtResource("4_dyp2m")

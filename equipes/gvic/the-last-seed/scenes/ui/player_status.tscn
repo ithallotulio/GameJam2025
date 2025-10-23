@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://o2hci6ofvmmr"]
+
+[ext_resource type="Texture2D" uid="uid://dpe8wc82vxn40" path="res://assets/status/heat-bar.png" id="1_kfqwc"]
+[ext_resource type="Script" uid="uid://cysxx2hmvefad" path="res://scripts/ui/player_status.gd" id="1_yf2o8"]
+[ext_resource type="Script" uid="uid://dagjwm4p44x61" path="res://scripts/ui/stamina.gd" id="2_yf2o8"]
+[ext_resource type="Texture2D" uid="uid://cgswia128hybx" path="res://assets/status/stamina-bar.png" id="3_t5uos"]
+
+[node name="PlayerStatus" type="VBoxContainer"]
+offset_right = 256.0
+offset_bottom = 104.0
+theme_override_constants/separation = 8
+script = ExtResource("1_yf2o8")
+
+[node name="heat" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="heat"]
+position = Vector2(2.3841858e-07, 3.8146973e-06)
+scale = Vector2(0.222, 0.222)
+texture = ExtResource("1_kfqwc")
+centered = false
+hframes = 9
+frame = 5
+
+[node name="stamina" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+script = ExtResource("2_yf2o8")
+
+[node name="Sprite2D" type="Sprite2D" parent="stamina"]
+position = Vector2(-2.3841858e-07, -1.1920929e-07)
+scale = Vector2(0.222, 0.222)
+texture = ExtResource("3_t5uos")
+centered = false
+hframes = 9

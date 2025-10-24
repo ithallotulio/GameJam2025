@@ -15,8 +15,8 @@ var recovering = 0
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
-	
-	if Input.is_action_pressed("sprint"):
+			
+	if Input.is_action_pressed("sprint") and direction != Vector2.ZERO:
 		recovering = 0
 		if stamina > 0:
 			velocity *= sprint_multiplier
@@ -59,3 +59,7 @@ func move_animate():
 			sprite.play("idle-east")
 		else: # last_move_input == move_left
 			sprite.play("idle-west")
+			
+			
+func game_over():
+	get_tree().change_scene_to_file("res://scenes/micro-ui/game_over.tscn")

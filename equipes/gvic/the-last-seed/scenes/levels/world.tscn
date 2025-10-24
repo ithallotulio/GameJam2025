@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=4 uid="uid://7nffhgti6elx"]
 
-[ext_resource type="Script" uid="uid://dhavr626atiel" path="res://scenes/levels/world.gd" id="1_0lift"]
+[ext_resource type="Script" uid="uid://dhavr626atiel" path="res://scripts/world/world.gd" id="1_0lift"]
 [ext_resource type="PackedScene" uid="uid://cq1ehk14f865r" path="res://scenes/characters/player.tscn" id="1_7k8c1"]
 [ext_resource type="PackedScene" uid="uid://djajt6c81ckqa" path="res://scenes/characters/entidade-ancestral.tscn" id="2_lfyvx"]
-[ext_resource type="Texture2D" uid="uid://di35syw38ddhs" path="res://assets/world/scifi_tilesheet.png" id="3_lfyvx"]
+[ext_resource type="Texture2D" uid="uid://di35syw38ddhs" path="res://assets/tilesets/scifi.png" id="3_lfyvx"]
 [ext_resource type="PackedScene" uid="uid://d31sxfmho1mf0" path="res://scenes/world_objects/fatec.tscn" id="4_w2p53"]
 [ext_resource type="PackedScene" uid="uid://o2hci6ofvmmr" path="res://scenes/ui/player_status.tscn" id="5_7xgas"]
-[ext_resource type="Texture2D" uid="uid://cvwh3ji7iks08" path="res://assets/world/street.png" id="5_gy5pc"]
+[ext_resource type="Texture2D" uid="uid://cvwh3ji7iks08" path="res://assets/tilesets/street.png" id="5_gy5pc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w2p53"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)

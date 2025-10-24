@@ -1,6 +1,3 @@
-extends CharacterBody2D
-
-
  #func old():
 	#@onready var player = get_node("/root/World/Player")
 	#@onready var sprite = $AnimatedSprite2D
@@ -63,6 +60,8 @@ extends CharacterBody2D
 			#if boost == 0:
 				#sprite.play("anger", 1)
 
+extends CharacterBody2D
+
 
 @export var speed := 160
 @export var target : CharacterBody2D
@@ -73,7 +72,13 @@ func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(nav.get_next_path_position())
 	velocity = direction * speed
 	
-	move_and_slide()
+	var motion = direction * speed * delta
+	var collision = move_and_collide(motion)
+	
+	if collision:
+		var body = collision.get_collider()
+		if body.is_in_group("player"):
+			body.game_over()
 
 
 func go_to_target():

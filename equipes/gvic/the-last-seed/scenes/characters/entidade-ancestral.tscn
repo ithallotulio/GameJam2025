@@ -44,6 +44,8 @@ script = ExtResource("1_klluv")
 position = Vector2(-3, -45)
 sprite_frames = SubResource("SpriteFrames_48a5u")
 autoplay = "default"
+frame = 5
+frame_progress = 0.07317156
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_klluv")

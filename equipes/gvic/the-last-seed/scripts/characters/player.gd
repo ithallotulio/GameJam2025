@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 150
 @export var sprint_multiplier = 1.5
 @export var max_stamina = 400
+@export var max_heat = 400
 @onready var sprite = $AnimatedSprite2D
 
 var last_move_input = null
@@ -10,6 +11,8 @@ var stamina_recovery_time = 180
 var stamina_recovery_amount = 0.5
 var stamina = 400
 var recovering = 0
+
+var heat = 0
 
 
 func _physics_process(_delta: float) -> void:

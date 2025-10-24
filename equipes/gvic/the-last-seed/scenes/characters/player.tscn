@@ -147,7 +147,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle-west",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -179,7 +179,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"plant-east",
-"speed": 6.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -257,13 +257,10 @@ script = ExtResource("1_yewv4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -9)
 sprite_frames = SubResource("SpriteFrames_kqtwu")
-animation = &"idle-east"
+animation = &"walk-east"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_rp718")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("4_dyp2m")]

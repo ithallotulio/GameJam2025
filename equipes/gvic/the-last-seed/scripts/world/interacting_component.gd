@@ -13,21 +13,21 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:
 		if current_interactions:
 			var target = current_interactions[0]
-			var parent_body =  target.get_parent()
-			can_interact = false
-			interact_label.hide()
-			
-			# Fazer animação quando for plantar:
-			if parent_body.name == "PlantableArea":
-				if player.last_move_input == "move_right":
-					sprite.play("plant-east")
-				else:
-					sprite.play("plant-west")
-				await get_tree().create_timer(2.0).timeout
-			
-			await target.interact.call()
-			
-			can_interact = true
+			if target.is_interactable:
+				can_interact = false
+				interact_label.hide()
+				
+				# Fazer animação se interação for plantar:
+				if target.interact_name == "Plantar":
+					if player.last_move_input == "move_right":
+						sprite.play("plant-east")
+					else:
+						sprite.play("plant-west")
+					await get_tree().create_timer(2.0).timeout
+				
+				await target.interact.call()
+				
+				can_interact = true
 
 
 func _process(_delta: float) -> void:

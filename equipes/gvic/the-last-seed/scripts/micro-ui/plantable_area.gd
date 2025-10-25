@@ -9,8 +9,6 @@ extends StaticBody2D
 func _ready() -> void:
 	interactable.interact = _on_interact
 	label.hide()
-	if sprite.frame == 1:
-		interactable.is_interactable = false
 
 
 func _on_interact():
@@ -23,6 +21,7 @@ func _on_interact():
 		label.hide()
 		interactable.is_interactable = true
 
+
 func plant():
 	var random_number = randi_range(1, 100)
 	var success = 50 + (Gamedata.plant_level * 10) - (Gamedata.score * 5)
@@ -33,3 +32,14 @@ func plant():
 	if random_number <= success:
 		return true
 	return false
+
+
+func is_planted():
+	if sprite.frame == 0:
+		return false
+	return true
+
+
+func sapling():
+	sprite.set_frame(1)
+	interactable.is_interactable = false

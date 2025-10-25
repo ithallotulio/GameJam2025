@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 150
+@export var speed = 120
 @export var sprint_multiplier = 1.5
 @export var max_stamina = 400
 @export var max_heat = 400
@@ -8,18 +8,20 @@ extends CharacterBody2D
 @onready var interact: Node2D = $InteractingComponent
 @onready var camera: Camera2D = $"../Camera2D"
 
+
+
 var last_move_input = null
 var stamina_recovery_time = 180
 var stamina_recovery_amount = 0.5
 var stamina = 400
 var recovering = 0
-
 var heat = 0
 
 
 func _physics_process(_delta: float) -> void:
 	moviment()
 	hack()
+	hack_2()
 	
 	if interact.can_interact:
 		move_animate()
@@ -78,13 +80,15 @@ func hack():
 	if Input.is_action_just_pressed("hack"):
 		stamina = 4000
 		heat = 0
-		speed += 150
+		speed += 120
 		camera.zoom -= Vector2(0.4, 0.4)
 		if camera.zoom <= Vector2(0.5, 0.5):
 			camera.zoom = Vector2(0.25, 0.25)
 		if speed > 900:
-			speed = 150
+			speed = 120
 			stamina = 400
 			camera.zoom = Vector2(2.0, 2.0)
-		
-	
+
+func hack_2():
+	if Input.is_action_just_pressed("hack_2"):
+		global_position = Gamedata.plantable_pos

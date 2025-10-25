@@ -7,10 +7,15 @@ extends Node2D
 
 
 func _ready() -> void:
-	player.heat = Gamedata.heat
+	# Load stamina e heat
 	player.stamina = Gamedata.stamina
+	player.heat = Gamedata.heat
+	
+	# Atualiza o hud
 	playerStatus.updateStamina(player.stamina, player.max_stamina)
 	playerStatus.updateHeat(player.heat, player.max_heat)
+	
+	# Aplica efeito visual de filtro
 	var heat_level = float(player.heat) / player.max_heat
 	heat_filter.color = Color(255,0, 0, heat_level / 3)
 

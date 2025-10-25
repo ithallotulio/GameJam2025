@@ -1,28 +1,27 @@
 extends Control
 
 @onready var label_score: Label = $LabelScore
-@onready var label_high_score: Label = $LabelHighScore
 @onready var olhos: Sprite2D = $EntidadeAncestralOlhos
 @onready var item_list: ItemList = $ItemList
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	# Calcular score
+	calculate_score()
+	
 	label_score.hide()
-	label_high_score.hide()
 	
 	if Gamedata.score <= Gamedata.highscore:
-		label_high_score.text = "Highscore: %d [%s]" % [Gamedata.highscore, Gamedata.highscore_player_name]
 		label_score.text = "Score: %d" % [Gamedata.score]
 	else:
-		label_high_score.text = "Parabéns! Você conseguiu um novo recorde: %d" % [Gamedata.score]
-		label_score.text = ""
+		label_score.text = "Parabéns! Você conseguiu um novo recorde: %d" % [Gamedata.score]
 		
 	add_to_top_10(Gamedata.player_name, Gamedata.score)
 	update_item_list()
 		
 	olhos.hide()
 	label_score.show()
-	label_high_score.show()
 
 
 func update_item_list() -> void:
@@ -66,6 +65,10 @@ func toggle_visibility(sprite: Sprite2D):
 		sprite.hide()
 	else:
 		sprite.show()
+
+
+func calculate_score():
+	Gamedata.score = len(Gamedata.sapling_list)
 
 
 func _on_timer_timeout() -> void:

@@ -17,6 +17,7 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 
 [node name="PlantableArea" type="StaticBody2D"]
+z_index = -1
 script = ExtResource("1_f2vm3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

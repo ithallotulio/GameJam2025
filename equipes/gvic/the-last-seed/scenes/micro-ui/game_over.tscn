@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dadyugxoq5sbj"]
+[gd_scene load_steps=16 format=3 uid="uid://dadyugxoq5sbj"]
 
 [ext_resource type="Texture2D" uid="uid://dxxg1y2rwvv3d" path="res://assets/micro-ui/game-over.png" id="1_nnly4"]
 [ext_resource type="Script" uid="uid://c3lopfcx60pd" path="res://scripts/micro-ui/game_over.gd" id="1_whito"]
@@ -87,18 +87,6 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../LabelHighScore:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_nnly4"]
 resource_name = "fade_in"
@@ -176,18 +164,6 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../LabelHighScore:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(7.034, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m8tap"]
 _data = {
@@ -196,10 +172,6 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_whito"]
-font = ExtResource("6_m8tap")
-font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_pn4lg"]
 font = ExtResource("6_m8tap")
 font_size = 24
 
@@ -269,6 +241,7 @@ offset_left = 624.0
 offset_top = -474.0
 offset_right = 944.0
 offset_bottom = -115.0
+mouse_filter = 2
 theme_override_fonts/font = ExtResource("7_pn4lg")
 theme_override_font_sizes/font_size = 26
 same_column_width = true
@@ -312,23 +285,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -944.0
-offset_top = 436.0
+offset_top = 476.0
 offset_right = -457.0
-offset_bottom = 482.0
+offset_bottom = 522.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Seu score foi de 00 pontos"
 label_settings = SubResource("LabelSettings_whito")
-vertical_alignment = 1
-
-[node name="LabelHighScore" type="Label" parent="."]
-layout_mode = 0
-offset_left = -944.0
-offset_top = 484.0
-offset_right = -201.0
-offset_bottom = 530.0
-text = "O maior Score é de Fulano com 00 ponto"
-label_settings = SubResource("LabelSettings_pn4lg")
 vertical_alignment = 1
 
 [node name="LabelQuote" type="Label" parent="."]

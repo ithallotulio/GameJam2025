@@ -63,7 +63,7 @@
 extends CharacterBody2D
 
 
-@export var speed := 160
+@export var speed := 130
 @export var target : CharacterBody2D
 @onready var nav = $NavigationAgent2D
 

@@ -1,3 +1,15 @@
+# Atualizações
+
+Nenhuma atualização é necessária, visto que mantivemos a ideia inicial do projeto e seguimos com as mecânicas propostas.
+
+# Como jogar:
+
+Para rodar o jogo, basta executar o arquivo **the-last-seed.exe** que está localizado na pasta “executavel” do projeto.
+
+# Video gameplay
+
+[Youtube](https://youtu.be/JnNZekFFt6A)
+
 # Equipe: GVIC
 
 ## Integrantes:

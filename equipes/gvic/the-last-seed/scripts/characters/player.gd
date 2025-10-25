@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 
 func moviment():
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * speed
+	velocity = direction * (speed + (Gamedata.speed_amount_per_level * Gamedata.speed_level))
 	if Input.is_action_pressed("sprint") and direction != Vector2.ZERO:
 		recovering = 0
 		if stamina > 0:

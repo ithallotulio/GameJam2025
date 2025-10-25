@@ -9,8 +9,6 @@ extends Node2D
 @onready var plantable: TileMapLayer = $Level/Plantable
 
 
-var plantable_cells = []
-
 func _ready() -> void:
 	# Entidade Spawn
 	spawn_entidade()
@@ -25,7 +23,7 @@ func _ready() -> void:
 var tempo_proximo = 0.0
 
 func _on_status_timer_timeout() -> void:
-	player.heat += 0.75
+	player.heat += 0.75 + (Gamedata.world_hot_increase * Gamedata.day)
 	playerStatus.updateStamina(player.stamina, player.max_stamina)
 	playerStatus.updateHeat(player.heat, player.max_heat)
 	var heat_level = float(player.heat) / player.max_heat

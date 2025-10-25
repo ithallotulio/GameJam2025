@@ -9,8 +9,8 @@ func _ready() -> void:
 	label_score.hide()
 	label_high_score.hide()
 	if Gamedata.score <= Gamedata.highscore:
-		label_high_score.text = "Maior score: %d [%s]" % [Gamedata.highscore, Gamedata.highscore_player_name]
-		label_score.text = "Seu score: %d" % [Gamedata.score]
+		label_high_score.text = "Highscore: %d [%s]" % [Gamedata.highscore, Gamedata.highscore_player_name]
+		label_score.text = "Score: %d" % [Gamedata.score]
 	else:
 		label_high_score.text = "Parabéns! Você conseguiu um novo recorde: %d" % [Gamedata.score]
 		label_score.text = ""

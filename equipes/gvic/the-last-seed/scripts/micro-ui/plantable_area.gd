@@ -29,7 +29,7 @@ func plant():
 	
 	# Limita a chance de sucesso entre 20% e 80%s
 	success = max(20, min(success, 80))
-	print(success)
+
 	if random_number <= success:
 		return true
 	return false

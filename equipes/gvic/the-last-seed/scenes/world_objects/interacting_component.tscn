@@ -1,16 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi626haax1ykt"]
 
 [ext_resource type="Script" uid="uid://wsy7axoi7dc4" path="res://scripts/world/interacting_component.gd" id="1_7sx2b"]
+[ext_resource type="FontFile" uid="uid://bmydyb8tlf7hf" path="res://assets/fonts/Ubuntu-Medium.ttf" id="2_8i60f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7sx2b"]
 radius = 8.0
 
-[sub_resource type="SystemFont" id="SystemFont_7sx2b"]
-subpixel_positioning = 0
-
 [sub_resource type="LabelSettings" id="LabelSettings_8i60f"]
-font = SubResource("SystemFont_7sx2b")
-font_size = 12
+font = ExtResource("2_8i60f")
+font_size = 14
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 

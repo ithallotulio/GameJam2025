@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5l6cyaiefn0d"
-path="res://.godot/imported/street.png-1fdf03be9cc934ffd482be76dd5ccd96.ctex"
+uid="uid://uk2sgpjbiik4"
+path="res://.godot/imported/sapling.png-e11cc3092d438208eaa3d772cae66dd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/street.png"
-dest_files=["res://.godot/imported/street.png-1fdf03be9cc934ffd482be76dd5ccd96.ctex"]
+source_file="res://assets/objects/sapling.png"
+dest_files=["res://.godot/imported/sapling.png-e11cc3092d438208eaa3d772cae66dd4.ctex"]
 
 [params]
 

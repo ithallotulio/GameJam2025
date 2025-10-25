@@ -70,9 +70,9 @@ extends CharacterBody2D
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(nav.get_next_path_position())
-	velocity = direction * speed
+	velocity = direction * (speed + (Gamedata.entidade_speed_increase * Gamedata.day))
 	
-	var motion = direction * speed * delta
+	var motion = velocity * delta
 	var collision = move_and_collide(motion)
 	
 	if collision:

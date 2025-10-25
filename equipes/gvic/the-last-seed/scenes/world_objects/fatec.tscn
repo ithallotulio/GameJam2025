@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://d31sxfmho1mf0"]
+[gd_scene load_steps=6 format=3 uid="uid://d31sxfmho1mf0"]
 
 [ext_resource type="Texture2D" uid="uid://d12d54hwlyywy" path="res://assets/fatec/fatec.png" id="1_q2vf3"]
+[ext_resource type="Script" uid="uid://diwqw055k2y0s" path="res://scripts/world/fatec.gd" id="1_t8yki"]
+[ext_resource type="PackedScene" uid="uid://c764kvqu7y371" path="res://scenes/world_objects/interactable.tscn" id="3_hocjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ples"]
 size = Vector2(217, 41)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fric"]
+size = Vector2(35, 9)
+
 [node name="Fatec" type="StaticBody2D"]
+script = ExtResource("1_t8yki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2, -44)
@@ -14,3 +20,10 @@ texture = ExtResource("1_q2vf3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_1ples")
+
+[node name="Interactable" parent="." instance=ExtResource("3_hocjg")]
+interact_name = "Entrar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(-0.5, 24.5)
+shape = SubResource("RectangleShape2D_2fric")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di35syw38ddhs"
-path="res://.godot/imported/scifi_tilesheet.png-621a945d3e3615371f529f3fd7f05ade.ctex"
+uid="uid://divvbre0bbmyr"
+path="res://.godot/imported/urban.png-0a1737e796b219dc92d35f969fa6929e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/scifi_tilesheet.png"
-dest_files=["res://.godot/imported/scifi_tilesheet.png-621a945d3e3615371f529f3fd7f05ade.ctex"]
+source_file="res://assets/tilesets/urban.png"
+dest_files=["res://.godot/imported/urban.png-0a1737e796b219dc92d35f969fa6929e.ctex"]
 
 [params]
 

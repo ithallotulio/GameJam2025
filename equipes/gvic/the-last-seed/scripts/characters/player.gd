@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var speed = 120
-@export var sprint_multiplier = 1.5
+@export var speed = 120 + (1 * Gamedata.speed_level)
+@export var sprint_multiplier = 1.6 + (0.05 * Gamedata.speed_level)
 @export var max_stamina = 400
-@export var max_heat = 400
+@export var max_heat = 400 + (12 * Gamedata.heat_level)
 @onready var sprite = $AnimatedSprite2D
 @onready var interact: Node2D = $InteractingComponent
 @onready var camera: Camera2D = $"../Camera2D"
@@ -20,8 +20,8 @@ var heat = 0
 
 func _physics_process(_delta: float) -> void:
 	moviment()
-	hack()
-	hack_2()
+	#hack()
+	#hack_2()
 	
 	if interact.can_interact:
 		move_animate()
@@ -35,7 +35,7 @@ func moviment():
 		recovering = 0
 		if stamina > 0:
 			velocity *= sprint_multiplier
-			stamina -= 1
+			stamina -= 0.5 + (0.02 * Gamedata.speed_level)
 	else:
 		recovering += 1
 		if recovering >= stamina_recovery_time:

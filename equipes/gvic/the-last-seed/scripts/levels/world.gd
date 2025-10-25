@@ -32,7 +32,7 @@ func _ready() -> void:
 	# World Temperature
 	var sapling_qty = len(Gamedata.sapling_list)
 	var sapling_cool = sapling_qty * 0.05
-	Gamedata.temp_celsius = 40 + 0.75 + (Gamedata.world_hot_increase * Gamedata.day) - sapling_cool
+	Gamedata.temp_celsius = 40 + 0.60 + (Gamedata.world_hot_increase * Gamedata.day) - sapling_cool
 	
 	# Label Day
 	label_day.text = "Dia %d\n%.2fºC" % [Gamedata.day, Gamedata.temp_celsius]

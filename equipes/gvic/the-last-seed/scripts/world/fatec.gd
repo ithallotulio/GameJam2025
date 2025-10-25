@@ -21,6 +21,7 @@ func _on_interact():
 	else:
 		Gamedata.sapling_list.append(world.plantable.position)
 		Gamedata.plantable_pos = Vector2i.ZERO
+		Gamedata.moedas += 1
 	
 	
 	Gamedata.day += 1

@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfih6utn4stud"]
+
+[ext_resource type="Script" uid="uid://cvepc302iirwh" path="res://scripts/levels/fatec_interior/loja_habilidades/loja_habilidades.gd" id="1_ppfoc"]
+[ext_resource type="FontFile" uid="uid://ccfb74dnqxh6j" path="res://assets/fonts/BitcountGridSingle_Cursive-Medium.ttf" id="1_rl7y0"]
+[ext_resource type="Script" uid="uid://okgpjtsoagbs" path="res://scripts/levels/fatec_interior/loja_habilidades/label_moedas.gd" id="1_x7lxl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ppfoc"]
+font = ExtResource("1_rl7y0")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_354ub"]
+font = ExtResource("1_rl7y0")
+font_size = 32
+font_color = Color(0.8627451, 0.47058824, 0.23529412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_08tkg"]
+font = ExtResource("1_rl7y0")
+font_size = 32
+font_color = Color(0, 1, 0, 1)
+
+[node name="LojaHabilidades" type="Node2D"]
+script = ExtResource("1_ppfoc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[node name="LabelMoedas" type="Label" parent="."]
+offset_left = 744.0
+offset_top = 832.0
+offset_right = 1132.0
+offset_bottom = 919.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Moedas: 0"
+label_settings = SubResource("LabelSettings_ppfoc")
+script = ExtResource("1_x7lxl")
+
+[node name="buttonSpeed" type="Button" parent="."]
+offset_left = 176.0
+offset_top = 328.0
+offset_right = 530.0
+offset_bottom = 454.0
+theme_override_colors/font_color = Color(0.8627451, 0.47058824, 0.23529412, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_rl7y0")
+theme_override_font_sizes/font_size = 48
+text = "Velocidade 
+de movimento"
+
+[node name="buttonHeat" type="Button" parent="."]
+offset_left = 760.0
+offset_top = 328.0
+offset_right = 1085.0
+offset_bottom = 470.0
+theme_override_colors/font_color = Color(0.8627451, 0.47058824, 0.23529412, 1)
+theme_override_fonts/font = ExtResource("1_rl7y0")
+theme_override_font_sizes/font_size = 48
+text = "Resistência
+ao calor
+"
+
+[node name="ButtonPlant" type="Button" parent="."]
+offset_left = 1328.0
+offset_top = 328.0
+offset_right = 1739.0
+offset_bottom = 454.0
+theme_override_colors/font_color = Color(0.8627451, 0.47058824, 0.23529412, 1)
+theme_override_fonts/font = ExtResource("1_rl7y0")
+theme_override_font_sizes/font_size = 48
+text = "Sucesso ao 
+plantar "
+
+[node name="ButtonBack" type="Button" parent="."]
+offset_left = 1504.0
+offset_top = 864.0
+offset_right = 1685.0
+offset_bottom = 931.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_rl7y0")
+theme_override_font_sizes/font_size = 48
+text = "Voltar"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 680.0
+offset_top = 936.0
+offset_right = 1179.0
+offset_bottom = 975.0
+text = "Cada upgrade custa 2 moedas"
+label_settings = SubResource("LabelSettings_354ub")
+
+[node name="LabelCompraEfetuada" type="Label" parent="."]
+offset_left = 768.0
+offset_top = 640.0
+offset_right = 1075.0
+offset_bottom = 679.0
+text = "Compra Efetuada!"
+label_settings = SubResource("LabelSettings_08tkg")
+uppercase = true
+
+[connection signal="pressed" from="buttonSpeed" to="." method="_on_buttonSpeed_pressed"]
+[connection signal="pressed" from="buttonHeat" to="." method="_on_buttonHeat_pressed"]
+[connection signal="pressed" from="ButtonPlant" to="." method="_on_buttonPlant_pressed"]
+[connection signal="pressed" from="ButtonBack" to="." method="_on_buttonBack_pressed"]

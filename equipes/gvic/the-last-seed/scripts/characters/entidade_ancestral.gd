@@ -63,14 +63,14 @@
 extends CharacterBody2D
 
 
-@export var speed := 130
+@export var speed = 125 + (Gamedata.entidade_speed_increase * Gamedata.day)
 @export var target : CharacterBody2D
 @onready var nav = $NavigationAgent2D
 
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(nav.get_next_path_position())
-	velocity = direction * (speed + (Gamedata.entidade_speed_increase * Gamedata.day))
+	velocity = direction * speed
 	
 	var motion = velocity * delta
 	var collision = move_and_collide(motion)

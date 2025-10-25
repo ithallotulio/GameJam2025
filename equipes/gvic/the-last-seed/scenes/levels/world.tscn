@@ -390,7 +390,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-130, 155)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.75, 1.75)
 limit_left = -2112
 limit_top = -1664
 limit_right = 3008

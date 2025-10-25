@@ -7,8 +7,11 @@ var stamina = 400
 var speed_amount_per_level = 5
 var score = 0
 var player_name = "n/a"
+var moedas = 2
+var return_position = Vector2.ZERO
 # player skills
 var plant_level = 0
+var heat_level = 0
 var speed_level = 0
 
 
@@ -26,7 +29,7 @@ var plantable_pos: Vector2i
 
 # difficulty settings / game balance settings
 var world_hot_increase = 0.05
-var entidade_speed_increase = 1
+var entidade_speed_increase = 1.25
 
 # info
 var days_without_plant = 0

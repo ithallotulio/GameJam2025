@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dadyugxoq5sbj"]
+[gd_scene load_steps=17 format=3 uid="uid://dadyugxoq5sbj"]
 
 [ext_resource type="Texture2D" uid="uid://dxxg1y2rwvv3d" path="res://assets/micro-ui/game-over.png" id="1_nnly4"]
 [ext_resource type="Script" uid="uid://c3lopfcx60pd" path="res://scripts/micro-ui/game_over.gd" id="1_whito"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://ccfb74dnqxh6j" path="res://assets/fonts/BitcountGridSingle_Cursive-Medium.ttf" id="7_pn4lg"]
 [ext_resource type="Script" uid="uid://cv4fjwxgk1mio" path="res://scripts/micro-ui/label_quote.gd" id="8_ehu8i"]
 [ext_resource type="Texture2D" uid="uid://dgpxml3axa3eo" path="res://assets/entidade-ancestral/entidade-ancestral-olhos.png" id="9_jfeau"]
+
+[sub_resource type="Theme" id="Theme_jfeau"]
 
 [sub_resource type="Animation" id="Animation_whito"]
 length = 0.001
@@ -44,6 +46,54 @@ tracks/2/path = NodePath("../HBoxContainer:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ItemList:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../RankLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../LabelScore:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../LabelHighScore:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -86,6 +136,54 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(7, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ItemList:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(7.0146666, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../RankLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(7.0146666, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../LabelScore:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(7.034, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../LabelHighScore:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7.034, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -146,6 +244,35 @@ grow_vertical = 2
 texture = ExtResource("1_nnly4")
 expand_mode = 1
 
+[node name="RankLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 735.0
+offset_top = -526.0
+offset_right = 826.0
+offset_bottom = -482.0
+grow_horizontal = 2
+theme = SubResource("Theme_jfeau")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_pn4lg")
+theme_override_font_sizes/font_size = 36
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 624.0
+offset_top = -474.0
+offset_right = 944.0
+offset_bottom = -115.0
+theme_override_fonts/font = ExtResource("7_pn4lg")
+theme_override_font_sizes/font_size = 26
+same_column_width = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -154,9 +281,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -282.0
-offset_top = 160.0
+offset_top = -171.0
 offset_right = 282.0
-offset_bottom = 296.0
+offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
@@ -168,7 +295,6 @@ icon = ExtResource("3_m8tap")
 
 [node name="Menu" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-disabled = true
 icon = ExtResource("4_pn4lg")
 
 [node name="anim" type="AnimationPlayer" parent="."]
@@ -206,11 +332,18 @@ label_settings = SubResource("LabelSettings_pn4lg")
 vertical_alignment = 1
 
 [node name="LabelQuote" type="Label" parent="."]
-layout_mode = 0
-offset_left = -600.0
-offset_top = -68.0
-offset_right = 598.0
-offset_bottom = -1.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -599.0
+offset_top = 238.0
+offset_right = 599.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
 label_settings = SubResource("LabelSettings_ehu8i")
 script = ExtResource("8_ehu8i")
 

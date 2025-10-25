@@ -15,7 +15,8 @@ var speed_level = 0
 # rank
 var highscore = 0
 var highscore_player_name = "n/a"
-
+var top_10 = []
+var all_players = []
 
 # world
 var day = 0

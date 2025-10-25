@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://7nffhgti6elx"]
+[gd_scene load_steps=26 format=4 uid="uid://7nffhgti6elx"]
 
 [ext_resource type="Script" uid="uid://dhavr626atiel" path="res://scripts/levels/world.gd" id="1_0lift"]
 [ext_resource type="PackedScene" uid="uid://cq1ehk14f865r" path="res://scenes/characters/player.tscn" id="1_7k8c1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://o2hci6ofvmmr" path="res://scenes/ui/player_status.tscn" id="5_7xgas"]
 [ext_resource type="Texture2D" uid="uid://b5l6cyaiefn0d" path="res://assets/tilesets/street.png" id="5_gy5pc"]
 [ext_resource type="PackedScene" uid="uid://drglsubbnxb5v" path="res://scenes/micro-ui/plantable_area.tscn" id="8_dp8al"]
+[ext_resource type="FontFile" uid="uid://ccfb74dnqxh6j" path="res://assets/fonts/BitcountGridSingle_Cursive-Medium.ttf" id="8_f1v6p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w2p53"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -348,9 +349,54 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_dp8al")
 
+[sub_resource type="Animation" id="Animation_f1v6p"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_csbb7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmplq"]
+_data = {
+&"RESET": SubResource("Animation_csbb7"),
+&"fade_in": SubResource("Animation_f1v6p")
+}
+
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_0lift")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 100
+offset_left = -2101.0
+offset_top = -2315.0
+offset_right = 8331.0
+offset_bottom = 3456.0
+color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-130, 155)
@@ -426,8 +472,26 @@ metadata/_edit_use_anchors_ = true
 wait_time = 0.2
 autostart = true
 
+[node name="Label" type="Label" parent="Hud"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 38.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("8_f1v6p")
+theme_override_font_sizes/font_size = 36
+
 [node name="PlantableArea" parent="." instance=ExtResource("8_dp8al")]
 z_index = -1
 position = Vector2(-133, 262)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mmplq")
+}
+autoplay = "fade_in"
 
 [connection signal="timeout" from="Hud/StatusTimer" to="." method="_on_status_timer_timeout"]

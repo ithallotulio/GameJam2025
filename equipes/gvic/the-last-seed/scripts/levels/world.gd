@@ -7,6 +7,7 @@ extends Node2D
 @onready var heat_filter: ColorRect = $Hud/HeatFilter
 @onready var entidade_filter: ColorRect = $Hud/EntidadeFilter
 @onready var plantable: TileMapLayer = $Level/Plantable
+@onready var label: Label = $Hud/Label
 
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 	spawn_entidade()
 	
 	# Player Status
+	label.text = Gamedata.player_name
 	player.heat = Gamedata.heat
 	player.stamina = Gamedata.stamina
 	playerStatus.updateStamina(player.stamina, player.max_stamina)

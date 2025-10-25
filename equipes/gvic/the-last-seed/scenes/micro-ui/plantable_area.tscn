@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://drglsubbnxb5v"]
+
+[ext_resource type="Texture2D" uid="uid://uk2sgpjbiik4" path="res://assets/objects/sapling.png" id="1_8gtm3"]
+[ext_resource type="PackedScene" uid="uid://c764kvqu7y371" path="res://scenes/world_objects/interactable.tscn" id="1_e42wv"]
+[ext_resource type="Script" uid="uid://opl71ev26x4n" path="res://scripts/micro-ui/plantable_area.gd" id="1_f2vm3"]
+[ext_resource type="FontFile" uid="uid://bmydyb8tlf7hf" path="res://assets/fonts/Ubuntu-Medium.ttf" id="4_q13u7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gtm3"]
+radius = 4.9071884
+
+[sub_resource type="LabelSettings" id="LabelSettings_f2vm3"]
+font = ExtResource("4_q13u7")
+font_size = 14
+font_color = Color(1, 0.19607843, 0.19607843, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="PlantableArea" type="StaticBody2D"]
+script = ExtResource("1_f2vm3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8gtm3")
+hframes = 2
+
+[node name="Interactable" parent="." instance=ExtResource("1_e42wv")]
+interact_name = "Plantar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(1, 5.9999995)
+scale = Vector2(3.2605228, 2.8577664)
+shape = SubResource("CircleShape2D_8gtm3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -23.0
+offset_top = -66.0
+offset_right = 30.0
+offset_bottom = -43.0
+size_flags_horizontal = 4
+text = "Falhou!"
+label_settings = SubResource("LabelSettings_f2vm3")
+horizontal_alignment = 1
+vertical_alignment = 1

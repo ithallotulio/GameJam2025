@@ -177,7 +177,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a2luo")
 }],
-"loop": true,
+"loop": false,
 "name": &"plant-east",
 "speed": 5.0
 }, {
@@ -209,7 +209,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yhyq5")
 }],
-"loop": true,
+"loop": false,
 "name": &"plant-west",
 "speed": 5.0
 }, {
@@ -257,7 +257,7 @@ script = ExtResource("1_yewv4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -9)
 sprite_frames = SubResource("SpriteFrames_kqtwu")
-animation = &"walk-east"
+animation = &"plant-west"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)

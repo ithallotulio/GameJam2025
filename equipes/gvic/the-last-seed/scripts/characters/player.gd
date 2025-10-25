@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var max_stamina = 400
 @export var max_heat = 400
 @onready var sprite = $AnimatedSprite2D
+@onready var interact: Node2D = $InteractingComponent
+@onready var camera: Camera2D = $"../Camera2D"
 
 var last_move_input = null
 var stamina_recovery_time = 180
@@ -16,9 +18,17 @@ var heat = 0
 
 
 func _physics_process(_delta: float) -> void:
+	moviment()
+	hack()
+	
+	if interact.can_interact:
+		move_animate()
+		move_and_slide()
+
+
+func moviment():
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
-			
 	if Input.is_action_pressed("sprint") and direction != Vector2.ZERO:
 		recovering = 0
 		if stamina > 0:
@@ -29,10 +39,6 @@ func _physics_process(_delta: float) -> void:
 		if recovering >= stamina_recovery_time:
 			if stamina < max_stamina:
 				stamina += 0.5
-				
-	
-	move_animate()
-	move_and_slide()
 
 
 func move_animate():
@@ -62,7 +68,23 @@ func move_animate():
 			sprite.play("idle-east")
 		else: # last_move_input == move_left
 			sprite.play("idle-west")
-			
-			
+
+
 func game_over():
 	get_tree().change_scene_to_file("res://scenes/micro-ui/game_over.tscn")
+
+
+func hack():
+	if Input.is_action_just_pressed("hack"):
+		stamina = 4000
+		heat = 0
+		speed += 150
+		camera.zoom -= Vector2(0.4, 0.4)
+		if camera.zoom <= Vector2(0.5, 0.5):
+			camera.zoom = Vector2(0.25, 0.25)
+		if speed > 900:
+			speed = 150
+			stamina = 400
+			camera.zoom = Vector2(2.0, 2.0)
+		
+	

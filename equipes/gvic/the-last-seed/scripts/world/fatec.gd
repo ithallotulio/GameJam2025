@@ -2,14 +2,13 @@ extends StaticBody2D
 
 @onready var interactable: Area2D = $Interactable
 @onready var player: CharacterBody2D = $"../../Player"
+@onready var world: Node2D = $"../.."
 
-
-
-var has_interacted = false
 
 func _ready() -> void:
 	interactable.interact = _on_interact
-	
+
+
 func _on_interact():
 	Gamedata.heat = player.heat
 	Gamedata.stamina = player.stamina

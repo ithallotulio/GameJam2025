@@ -6,15 +6,23 @@ extends Node2D
 @onready var entidade_ancestral: CharacterBody2D = $"Entidade Ancestral"
 @onready var heat_filter: ColorRect = $Hud/HeatFilter
 @onready var entidade_filter: ColorRect = $Hud/EntidadeFilter
+@onready var plantable: TileMapLayer = $Level/Plantable
 
+
+var plantable_cells = []
 
 func _ready() -> void:
+	# Entidade Spawn
 	spawn_entidade()
+	
+	# Player Status
 	player.heat = Gamedata.heat
 	player.stamina = Gamedata.stamina
 	playerStatus.updateStamina(player.stamina, player.max_stamina)
 	playerStatus.updateHeat(player.heat, player.max_heat)
 
+
+var tempo_proximo = 0.0
 
 func _on_status_timer_timeout() -> void:
 	player.heat += 0.75
@@ -27,15 +35,21 @@ func _on_status_timer_timeout() -> void:
 		heat_filter.color = Color(255,0, 0, heat_level / 2)
 	if player.heat > (player.max_heat * 1.2):
 		player.game_over()
-		
+	
 	var distancia_entidade = entidade_ancestral.global_position.distance_to(player.global_position)
-	if distancia_entidade < 50:
-		entidade_filter.color = Color(0, 0, 0, 0.9)
+	if distancia_entidade < 80:
+		entidade_filter.color = Color(0, 0, 0, (0.5 - distancia_entidade / 200) + (tempo_proximo / 6))
+		if tempo_proximo < 3:
+			tempo_proximo += 0.2
 	else:
-		if distancia_entidade < 80:
-			entidade_filter.color = Color(0, 0, 0, 0.5 - distancia_entidade / 625)
-		elif distancia_entidade > 120:
-			entidade_filter.color = Color(0, 0, 0, 0)
+		if distancia_entidade < 100:
+			if tempo_proximo < 3:
+				tempo_proximo += 0.1
+			entidade_filter.color = Color(0, 0, 0, (0.5 - distancia_entidade / 200) + (tempo_proximo / 6))
+		elif distancia_entidade > 150:
+			if tempo_proximo >= 0:
+				tempo_proximo -= max(0, tempo_proximo - 0.4)
+			entidade_filter.color = Color(0, 0, 0,(tempo_proximo / 6))
 
 
 func spawn_entidade():
